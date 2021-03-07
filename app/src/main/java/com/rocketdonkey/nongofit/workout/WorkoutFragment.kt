@@ -23,7 +23,7 @@ class WorkoutFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout.
         val binding: FragmentWorkoutBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_workout, container, false
@@ -38,13 +38,15 @@ class WorkoutFragment : Fragment() {
         // Set up listeners.
 
         // TODO: Should not be done here, move to ViewModel.
-        binding.btnSpeedUp.setOnClickListener {
-            workoutModel.increaseSpeed()
-        }
-        binding.btnSpeedDown.setOnClickListener {
-            workoutModel.decreaseSpeed()
-        }
 
-        return binding.root;
+        // Speed.
+        binding.btnSpeedUp.setOnClickListener { workoutModel.increaseSpeed() }
+        binding.btnSpeedDown.setOnClickListener { workoutModel.decreaseSpeed() }
+
+        // Incline.
+        binding.btnInclineUp.setOnClickListener { workoutModel.increaseIncline() }
+        binding.btnInclineDown.setOnClickListener { workoutModel.decreaseIncline() }
+
+        return binding.root
     }
 }

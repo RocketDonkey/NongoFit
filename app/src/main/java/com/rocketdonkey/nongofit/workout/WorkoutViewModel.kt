@@ -56,6 +56,14 @@ class WorkoutViewModel @Inject constructor(
         return Transformations.map(inclineMetric.get()) { it.toString() }
     }
 
+    fun increaseIncline() {
+        inclineMetric.increase(0.5)
+    }
+
+    fun decreaseIncline() {
+        inclineMetric.decrease(0.5)
+    }
+
     override fun onCleared() {
 //        liveData.removeObserver(observer)
         super.onCleared()

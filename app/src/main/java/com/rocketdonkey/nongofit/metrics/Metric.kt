@@ -31,4 +31,6 @@ interface DistanceMetric {
 
 interface InclineMetric {
     fun get(): LiveData<Double>
+    fun increase(amount: Double)
+    fun decrease(amount: Double)
 }

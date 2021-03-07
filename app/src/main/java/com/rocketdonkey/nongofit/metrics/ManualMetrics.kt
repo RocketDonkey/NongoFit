@@ -40,7 +40,7 @@ class ManualElapsedTimeMetric @Inject constructor() : ElapsedTimeMetric {
  * PaceMetric that is manually modified in response to user input.
  */
 class ManualSpeedMetric @Inject constructor() : SpeedMetric {
-    private val _pace = MutableLiveData<Double>(99.5)
+    private val _pace = MutableLiveData<Double>(3.5)
     private val pace: LiveData<Double> get() = _pace
 
     override fun get(): LiveData<Double> = pace
@@ -56,7 +56,7 @@ class ManualSpeedMetric @Inject constructor() : SpeedMetric {
 /**
  * DistanceMetric that is manually calculated based on pace changes.
  */
-class ManualDistanceMetric @Inject constructor(private val speedMetric: SpeedMetric) :
+class ManualDistanceMetric @Inject constructor(speedMetric: SpeedMetric) :
     DistanceMetric {
     private val timer = Timer()
     private val tickInterval: Long = 500
@@ -98,8 +98,15 @@ class ManualDistanceMetric @Inject constructor(private val speedMetric: SpeedMet
  * InclineMetric that is manually modified in response to user input.
  */
 class ManualInclineMetric @Inject constructor() : InclineMetric {
-    private val _incline = MutableLiveData<Double>(10.5)
+    private val _incline = MutableLiveData<Double>(3.5)
     private val incline: LiveData<Double> get() = _incline
 
     override fun get(): LiveData<Double> = incline
+    override fun increase(amount: Double) {
+        _incline.value = (_incline.value ?: 0.0) + amount
+    }
+
+    override fun decrease(amount: Double) {
+        _incline.value = (_incline.value ?: 0.0) - amount
+    }
 }
