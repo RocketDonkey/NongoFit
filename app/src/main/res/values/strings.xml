@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">NongoFit</string>
+    <string name="distance">Distance</string>
+    <string name="time">Time</string>
+    <string name="speed">Speed</string>
+    <string name="incline">Incline</string>
+    <string name="start">Start</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+</resources>
