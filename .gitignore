@@ -129,3 +129,13 @@ cmake-build-*/
 
 # File-based project format
 *.iws
+
+# Python
+*.egg-info/
+.mypy_cache/
+.pytest_cache/
+__pycache__/
+dist/
+docs/build_*
+venv/
+virtualenv/
